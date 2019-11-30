@@ -4,7 +4,8 @@
             "medoo": "Medoo.php"
         },
         "custom": {
-            
+            "jsonParser": "Parser/JsonParser/JsonParser.php",
+            "routing": "Routing.php"
         }
     }
 }

@@ -14,9 +14,15 @@ class Config
      */
     private $requies;
 
+    /** 
+     * @var Routing
+     */
+    public $routing;
+
     public function __construct() 
     {
         $this->initRequires();
+        $this->routing = new Routing();
     }
 
     private function initRequires() 

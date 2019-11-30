@@ -1,0 +1,14 @@
+{
+    "routes": {
+        "login": {
+            "request": "/login",
+            "controller": "controller/loginController.php",
+            "access": "allway-accessabel"
+        },
+        "logout": {
+            "request": "/logout",
+            "controller": "controller/logoutController.php",
+            "access": "allway-accessabel"
+        }
+    }
+}

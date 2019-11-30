@@ -19,12 +19,12 @@ class RequireContainer
         $json = json_decode($jsonFile, true);
 
         foreach ($json['requires']['lib'] as $key => $value) {
-            $this->requires[$key] = $value;
+            $this->requires['lib'][$key] = $value;
             require_once($_SERVER["DOCUMENT_ROOT"] . "/module/lib/" . $value);
         }
 
         foreach ($json['requires']['custom'] as $key => $value) {
-            $this->requires[$key] = $value;
+            $this->requires['custom'][$key] = $value;
             require_once($_SERVER["DOCUMENT_ROOT"] . "/module/custom/" . $value);
         }
     }
