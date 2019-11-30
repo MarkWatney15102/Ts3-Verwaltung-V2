@@ -2,8 +2,8 @@
 
 class LogoutController implements ControllerInterface
 {
-    public function init()
+    public function init(Title $title)
     {
-        
+        $title->setTitle("Logout");
     }
 }

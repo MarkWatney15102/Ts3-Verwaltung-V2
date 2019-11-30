@@ -2,5 +2,5 @@
 
 interface ControllerInterface 
 {
-    public function init();
+    public function init(Title $title);
 }

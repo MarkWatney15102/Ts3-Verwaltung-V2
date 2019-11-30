@@ -18,6 +18,8 @@ class Routing
             if ($requestedUri == $route->request) {
                 require_once($_SERVER['DOCUMENT_ROOT'] . "/" . $route->controller);
                 $controller = new $route->controllerName;
+                $controller->init(new Title());
+                break;
             }
         }
     }
