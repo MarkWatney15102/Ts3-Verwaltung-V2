@@ -1,0 +1,10 @@
+{
+    "requires": {
+        "lib": {
+            "medoo": "Medoo.php"
+        },
+        "custom": {
+            
+        }
+    }
+}
