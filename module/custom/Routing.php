@@ -16,7 +16,8 @@ class Routing
     {
         foreach ($this->routes->routes as $route) {
             if ($requestedUri == $route->request) {
-                echo $route->request;
+                require_once($_SERVER['DOCUMENT_ROOT'] . "/" . $route->controller);
+                $controller = new $route->controllerName;
             }
         }
     }

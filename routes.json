@@ -2,12 +2,14 @@
     "routes": {
         "login": {
             "request": "/login",
-            "controller": "controller/loginController.php",
+            "controller": "controller/Login/LoginController.php",
+            "controllerName": "LoginController",
             "access": "allway-accessabel"
         },
         "logout": {
             "request": "/logout",
-            "controller": "controller/logoutController.php",
+            "controller": "controller/Logout/LogoutController.php",
+            "controllerName": "LogoutController",
             "access": "allway-accessabel"
         }
     }

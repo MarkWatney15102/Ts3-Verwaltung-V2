@@ -5,6 +5,7 @@
         },
         "custom": {
             "jsonParser": "Parser/JsonParser/JsonParser.php",
+            "controllerInterface": "Interface/Controller/ControllerInterface.php",
             "routing": "Routing.php"
         }
     }
