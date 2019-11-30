@@ -2,8 +2,19 @@
 
 class Title
 {
+    /**
+     * @var string
+     */
+    private $pageTitle;
+
     public function setTitle(string $title) 
     {
-        echo '<title>' . $title . '</title>';
+        $this->pageTitle = $title;
+        echo '<title>' . $this->pageTitle . '</title>';
+    }
+
+    public function getTitle()
+    {
+        return $this->pageTitle;
     }
 }
