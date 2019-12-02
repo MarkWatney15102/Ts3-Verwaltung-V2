@@ -38,15 +38,25 @@ class Login extends Config
     {
         $this->getUserdataByUsername();
 
+        $message = new Message();
+
         if ($this->userdata === null) {
             $this->auth = false;
+            $message->setMessageType(3);
+            $message->setMessageText("Username does not exist");
         } else {
             if (password_verify($this->password, $this->userdata[0]['password'])) {
                 $this->auth = true;
+                $message->setMessageType(1);
+                $message->setMessageText("Login was Successfull");
             } else {
                 $this->auth = false;
+                $message->setMessageType(3);
+                $message->setMessageText("Wrong Username or Password");
             }
         }
+
+        $message->printMessage();
     }
 
     private function getUserdataByUsername()

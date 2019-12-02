@@ -1,0 +1,19 @@
+.message-box {
+    position: absolute; 
+    top: 30; 
+    left: 75%; 
+    z-index: 100;
+    -webkit-animation: cssAnimation 5s forwards; 
+    animation: cssAnimation 5s forwards;
+}
+
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+@-webkit-keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}

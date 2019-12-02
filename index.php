@@ -1,6 +1,7 @@
 <head>
 <link rel="stylesheet" href="dist/css/build.css">
 <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="dist/css/message-boxes.css">
 <script src="dist/js/jquery.min.js"></script>
 <script src="dist/js/bootstrap.min.js"></script>
 </head>

@@ -22,9 +22,9 @@ class LoginController implements ControllerInterface
             $login->checkLoginData();
 
             if ($login->isAuth()) {
-                echo 'Success';
+
             } else {
-                echo 'No Success';
+                
             }
         }
     }
