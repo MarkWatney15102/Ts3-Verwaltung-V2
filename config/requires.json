@@ -1,7 +1,8 @@
 {
     "requires": {
         "lib": {
-            "medoo": "Medoo.php"
+            "medoo": "Medoo/Medoo.php",
+            "teamSpeak": "TeamSpeak3/TeamSpeak3.php"
         },
         "custom": {
             "jsonParser": "Parser/JsonParser/JsonParser.php",
