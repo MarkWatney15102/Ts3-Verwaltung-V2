@@ -1,0 +1,33 @@
+/*
+    primary: #2f3347;
+    secondy: #242738;
+    drei: #272740;
+    akzente: #8b008b;
+*/
+
+body {
+    background-color: #2f3347 !important;
+}
+
+.nav-bar {
+    background-color: #242738 !important;
+}
+
+.nav-bar a {
+    color: aliceblue !important;
+}
+
+.container-fluid {
+    margin-top: 10px !important;
+    color: aliceblue !important;
+}
+
+.card {
+    background-color: #242738 !important;
+}
+
+.form-control {
+    color: aliceblue !important;
+    background-color: #272740 !important;
+    border: 1px solid #8b008b !important;
+}

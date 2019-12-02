@@ -7,8 +7,14 @@ class Routing
      */
     private $routes;
 
-    public function __construct()
+    /**
+     * @var Config
+     */
+    private $config;
+
+    public function __construct(Config $config)
     {
+        $this->config = $config;
         $this->getRoutesList();
     }
 
@@ -17,8 +23,10 @@ class Routing
         foreach ($this->routes->routes as $route) {
             if ($requestedUri == $route->request) {
                 require_once($_SERVER['DOCUMENT_ROOT'] . "/" . $route->controller);
+                require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Header/header.php");
                 $controller = new $route->controllerName;
-                $controller->init(new Title());
+                $controller->init(new Title(), $this->config);
+                $controller->createView();
                 break;
             }
         }

@@ -2,6 +2,8 @@
 
 require_once($_SERVER["DOCUMENT_ROOT"] . '/config/require.php');
 
+use Medoo\Medoo;
+
 class Config
 {
     /**
@@ -19,10 +21,17 @@ class Config
      */
     public $routing;
 
+    /**
+     * @var Medoo
+     */
+    public $database;
+
     public function __construct() 
     {
         $this->initRequires();
-        $this->routing = new Routing();
+        $this->routing = new Routing($this);
+
+        $this->initDatabaseConnection();
     }
 
     private function initRequires() 
@@ -32,7 +41,17 @@ class Config
 
     private function initDatabaseConnection() 
     {
+        $database = new Medoo(
+            [
+                'database_type' => 'mysql',
+                'database_name' => 'ts3',
+                'server' => '127.0.0.1',
+                'username' => 'root',
+                'password' => ''
+            ]
+        );
 
+        $this->database = $database;
     }
 }
 

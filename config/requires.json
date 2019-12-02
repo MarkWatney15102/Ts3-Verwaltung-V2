@@ -7,7 +7,9 @@
             "jsonParser": "Parser/JsonParser/JsonParser.php",
             "title": "Title.php",
             "controllerInterface": "Interface/Controller/ControllerInterface.php",
-            "routing": "Routing.php"
+            "routing": "Routing.php",
+            "user": "Models/UserModel.php",
+            "login": "Actions/Login/Login.php"
         }
     }
 }
