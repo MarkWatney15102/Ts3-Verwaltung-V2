@@ -47,6 +47,7 @@ class Login extends Config
         } else {
             if (password_verify($this->password, $this->userdata[0]['password'])) {
                 $this->auth = true;
+                $_SESSION['UID'] = $this->userdata[0]['user_id'];
                 $message->setMessageType(1);
                 $message->setMessageText("Login was Successfull");
             } else {

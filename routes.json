@@ -9,8 +9,13 @@
         "logout": {
             "request": "/logout",
             "controller": "controller/Logout/LogoutController.php",
-            "controllerName": "LogoutController",
-            "access": "allway-accessabel"
+            "controllerName": "LogoutController"
+        },
+        "dashboard": {
+            "request": "/",
+            "secondRequest": "/home",
+            "controller": "controller/Home/HomeController.php",
+            "controllerName": "HomeController"
         }
     }
 }
