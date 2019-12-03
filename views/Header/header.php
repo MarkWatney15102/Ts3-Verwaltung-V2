@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light nav-bar">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="/home">Navbar</a>
     <ul class="navbar-nav mr-auto">
         <?php if (isset($_SESSION['UID'])) { ?>
         <li class="nav-item active">

@@ -11,7 +11,7 @@
 
     $config = new Config();
 
-    $config->routing->redirect($_SERVER['REQUEST_URI']);
+    $config->routing->rout($_SERVER['REQUEST_URI']);
 
     if (isset($_SESSION['UID'])) {
         $user = new UserModel($config, $_SESSION['UID']);

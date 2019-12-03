@@ -22,7 +22,7 @@ class LoginController implements ControllerInterface
             $login->checkLoginData();
 
             if ($login->isAuth()) {
-
+                $this->config->redirect->redirect("/");
             } else {
                 
             }
