@@ -9,6 +9,7 @@
             "title": "Title.php",
             "controllerInterface": "Interface/Controller/ControllerInterface.php",
             "routing": "Routing.php",
+            "redirect": "Redirect/Redirect.php",
             "message": "Messages/Message.php",
             "user": "Models/UserModel.php",
             "login": "Actions/Login/Login.php"

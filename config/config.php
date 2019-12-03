@@ -26,10 +26,16 @@ class Config
      */
     public $database;
 
+    /**
+     * @var Redirect
+     */
+    public $redirect;
+
     public function __construct() 
     {
         $this->initRequires();
         $this->routing = new Routing($this);
+        $this->redirect = new Redirect($this);
 
         $this->initDatabaseConnection();
     }
