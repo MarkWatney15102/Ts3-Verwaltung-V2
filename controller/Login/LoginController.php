@@ -23,8 +23,6 @@ class LoginController implements ControllerInterface
 
             if ($login->isAuth()) {
                 $this->config->redirect->redirect("/");
-            } else {
-                
             }
         }
     }

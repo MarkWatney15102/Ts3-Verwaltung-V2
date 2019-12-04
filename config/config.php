@@ -31,6 +31,11 @@ class Config
      */
     public $redirect;
 
+    /**
+     * @var Teamspeak
+     */
+    public $ts;
+
     public function __construct() 
     {
         $this->initRequires();
@@ -38,6 +43,7 @@ class Config
         $this->redirect = new Redirect($this);
 
         $this->initDatabaseConnection();
+        $this->initTsQueryConnection();
     }
 
     private function initRequires() 
@@ -58,6 +64,16 @@ class Config
         );
 
         $this->database = $database;
+    }
+
+    private function initTsQueryConnection()
+    {
+        /*
+            serveradmin
+            x6c1L+B5
+        */
+        $tsQuery = TeamSpeak3::factory("serverquery://serveradmin:x6c1L+B5@127.0.0.1:10011/");
+        $this->ts = $tsQuery;
     }
 }
 
