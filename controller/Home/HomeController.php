@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class HomeController implements ControllerInterface
 {
@@ -15,8 +15,6 @@ class HomeController implements ControllerInterface
 
     public function createView()
     {
-        $clientList = $this->config->ts->clientList();
-
         require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Home/home.php");
     }
 }

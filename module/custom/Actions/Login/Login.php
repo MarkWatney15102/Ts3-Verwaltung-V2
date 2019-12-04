@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Login extends Config
 {
@@ -27,7 +27,7 @@ class Login extends Config
      */
     private $auth;
 
-    public function __construct(string $username, string $password, Config $config) 
+    public function __construct(string $username, string $password, Config $config)
     {
         $this->username = $username;
         $this->password = $password;
@@ -40,7 +40,7 @@ class Login extends Config
 
         $message = new Message();
 
-        if ($this->userdata === null) {
+        if ($this->userdata == null) {
             $this->auth = false;
             $message->setMessageType(3);
             $message->setMessageText("Username does not exist");
@@ -62,7 +62,7 @@ class Login extends Config
 
     private function getUserdataByUsername()
     {
-        $this->userdata = $this->config->database->select('user_login', 
+        $this->userdata = $this->config->database->select('user_login',
             [
                 'user_id',
                 'username',
@@ -75,7 +75,7 @@ class Login extends Config
         );
     }
 
-    public function isAuth() 
+    public function isAuth()
     {
         return $this->auth;
     }

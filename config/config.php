@@ -16,7 +16,7 @@ class Config
      */
     private $requies;
 
-    /** 
+    /**
      * @var Routing
      */
     public $routing;
@@ -36,7 +36,12 @@ class Config
      */
     public $ts;
 
-    public function __construct() 
+    /**
+    * @var UserModel
+    */
+    public $user;
+
+    public function __construct()
     {
         $this->initRequires();
         $this->routing = new Routing($this);
@@ -46,12 +51,12 @@ class Config
         $this->initTsQueryConnection();
     }
 
-    private function initRequires() 
+    private function initRequires()
     {
         $this->require = new RequireContainer();
     }
 
-    private function initDatabaseConnection() 
+    private function initDatabaseConnection()
     {
         $database = new Medoo(
             [
@@ -68,12 +73,12 @@ class Config
 
     private function initTsQueryConnection()
     {
-        /*
-            serveradmin
-            x6c1L+B5
-        */
-        $tsQuery = TeamSpeak3::factory("serverquery://serveradmin:x6c1L+B5@127.0.0.1:10011/");
-        $this->ts = $tsQuery;
+        $ts = TeamSpeak3::factory("serverquery://serveradmin:7NRjUAWi@127.0.0.1:10011/");
+        $this->ts = $ts;
+    }
+
+    public function setUser(UserModel $user)
+    {
+        $this->user = $user;
     }
 }
-

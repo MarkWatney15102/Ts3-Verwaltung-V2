@@ -15,7 +15,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php 
+                            <?php
+                                $clientlist = [];
                                 foreach ($clientlist as $client) {
                                     echo '<tr>';
                                     echo '<td>' . $client['clid'] . '</td>';
@@ -28,6 +29,26 @@
                     </table>
                 </div>
             </div>
+        </div>
+        <div class="col-md-4 col-lg-7">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title">Your Last Actions</h5>
+            </div>
+            <div class="card-body">
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <td>#</td>
+                    <td>Action</td>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
     </div>
 </div>

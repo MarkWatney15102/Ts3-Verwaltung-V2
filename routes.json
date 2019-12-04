@@ -1,21 +1,26 @@
 {
     "routes": {
         "login": {
-            "request": "/login",
-            "controller": "controller/Login/LoginController.php",
-            "controllerName": "LoginController",
-            "access": "allway-accessabel"
+          "request": "/login",
+          "controller": "controller/Login/LoginController.php",
+          "controllerName": "LoginController",
+          "access": "allway-accessabel"
         },
         "logout": {
-            "request": "/logout",
-            "controller": "controller/Logout/LogoutController.php",
-            "controllerName": "LogoutController"
+          "request": "/logout",
+          "controller": "controller/Logout/LogoutController.php",
+          "controllerName": "LogoutController"
         },
         "dashboard": {
-            "request": "/",
-            "secondRequest": "/home",
-            "controller": "controller/Home/HomeController.php",
-            "controllerName": "HomeController"
+          "request": "/",
+          "secondRequest": "/home",
+          "controller": "controller/Home/HomeController.php",
+          "controllerName": "HomeController"
+        },
+        "accoutlist": {
+          "request": "/admin-accountlist",
+          "controller": "controller/Account/AccountList/AccountList.php",
+          "controllerName": "AccountList"
         }
     }
 }

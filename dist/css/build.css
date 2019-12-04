@@ -17,6 +17,7 @@ body {
     color: aliceblue !important;
 }
 
+.container,
 .container-fluid {
     margin-top: 10px !important;
     color: aliceblue !important;
@@ -30,4 +31,8 @@ body {
     color: aliceblue !important;
     background-color: #272740 !important;
     border: 1px solid #8b008b !important;
+}
+
+.dropdown-menu a {
+  color: black !important;
 }

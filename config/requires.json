@@ -12,7 +12,8 @@
             "redirect": "Redirect/Redirect.php",
             "message": "Messages/Message.php",
             "user": "Models/UserModel.php",
-            "login": "Actions/Login/Login.php"
+            "login": "Actions/Login/Login.php",
+            "loginChecker": "Actions/loginChecker/loginChecker.php"
         }
     }
 }
