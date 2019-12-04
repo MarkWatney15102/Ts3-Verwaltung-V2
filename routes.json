@@ -21,6 +21,14 @@
           "request": "/admin-accountlist",
           "controller": "controller/Account/AccountList/AccountList.php",
           "controllerName": "AccountList"
+        },
+        "userprofile": {
+          "request": "/admin-userprofile",
+          "controller": "controller/Account/UserProfile/UserProfile.php",
+          "controllerName": "UserProfile",
+          "neededParams": {
+            "1": "user_id"
+          }
         }
     }
 }

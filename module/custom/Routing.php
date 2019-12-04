@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Routing
 {
@@ -18,10 +18,17 @@ class Routing
         $this->getRoutesList();
     }
 
-    public function rout($requestedUri)
+    public function rout($request)
     {
+        $request = explode('?', $request, 2);
+        $requestedUri = $request[0];
         foreach ($this->routes->routes as $route) {
             if ($requestedUri === $route->request) {
+                foreach ($route->neededParams as $neededParamas) {
+                    if (!isset($_GET[$neededParamas])) {
+                        throw new Exception("Missing Paramenter", 1);
+                    }
+                }
                 $this->internalRouting($route);
                 break;
             } else {
@@ -50,4 +57,3 @@ class Routing
         $this->routes = $jsonParser->getJsonArray();
     }
 }
-
