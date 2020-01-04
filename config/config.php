@@ -31,9 +31,7 @@ class Config
      */
     public $redirect;
 
-    /**
-     * @var Teamspeak
-     */
+
     public $ts;
 
     /**
@@ -73,7 +71,7 @@ class Config
 
     private function initTsQueryConnection()
     {
-        $ts = TeamSpeak3::factory("serverquery://serveradmin:oNMyA1DC@127.0.0.1:10011/");
+        $ts = TeamSpeak3::factory("serverquery://serveradmin:oNMyA1DC@127.0.0.1:10011/?server_port=9987");
         $this->ts = $ts;
     }
 

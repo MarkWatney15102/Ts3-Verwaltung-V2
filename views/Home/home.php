@@ -17,11 +17,13 @@
                         <tbody>
                             <?php
                                 foreach ($clientlist as $client) {
+                                  if($client['client_platform'] != "ServerQuery") {
                                     echo '<tr>';
                                     echo '<td>' . $client['clid'] . '</td>';
                                     echo '<td>' . $client['client_nickname'] . '</td>';
                                     echo '<td></td>';
                                     echo '</tr>';
+                                  }
                                 }
                             ?>
                         </tbody>
