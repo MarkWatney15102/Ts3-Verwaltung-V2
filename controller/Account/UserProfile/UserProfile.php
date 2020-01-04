@@ -15,6 +15,11 @@ class UserProfile implements ControllerInterface
 
   public function createView()
   {
+    $editUser = new UserModel($this->config, $_GET['user_id']);
+
+    if (isset($_POST['change_user_active_state'])) {
+      $editUser->setActive((int)$_POST['change_to']);
+    }
     require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Account/UserProfile/userprofile.php");
   }
 }

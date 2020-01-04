@@ -16,7 +16,6 @@
                         </thead>
                         <tbody>
                             <?php
-                                $clientlist = [];
                                 foreach ($clientlist as $client) {
                                     echo '<tr>';
                                     echo '<td>' . $client['clid'] . '</td>';

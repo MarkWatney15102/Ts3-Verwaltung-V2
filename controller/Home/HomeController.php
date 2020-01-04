@@ -15,6 +15,7 @@ class HomeController implements ControllerInterface
 
     public function createView()
     {
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Home/home.php");
+      $clientlist = [];
+      require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Home/home.php");
     }
 }

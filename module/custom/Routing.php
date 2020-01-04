@@ -24,9 +24,11 @@ class Routing
         $requestedUri = $request[0];
         foreach ($this->routes->routes as $route) {
             if ($requestedUri === $route->request) {
-                foreach ($route->neededParams as $neededParamas) {
-                    if (!isset($_GET[$neededParamas])) {
-                        throw new Exception("Missing Paramenter", 1);
+                if (isset($route->neededParams)) {
+                    foreach ($route->neededParams as $neededParamas) {
+                        if (!isset($_GET[$neededParamas])) {
+                            throw new Exception("Missing Paramenter", 1);
+                        }
                     }
                 }
                 $this->internalRouting($route);

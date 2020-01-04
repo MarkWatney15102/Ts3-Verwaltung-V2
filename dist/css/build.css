@@ -23,6 +23,10 @@ body {
     color: aliceblue !important;
 }
 
+.row {
+  margin-top: 10 !important;
+}
+
 .card {
     background-color: #242738 !important;
 }
