@@ -17,11 +17,12 @@
                         <tbody>
                             <?php
                                 foreach ($clientlist as $client) {
+                                  // var_dump($client);
                                   if($client['client_platform'] != "ServerQuery") {
                                     echo '<tr>';
                                     echo '<td>' . $client['clid'] . '</td>';
                                     echo '<td>' . $client['client_nickname'] . '</td>';
-                                    echo '<td></td>';
+                                    echo '<td><a href="/client?client_uid=' . urlencode($client['client_unique_identifier']) . '" class="btn btn-block btn-info">Client Profile</a></td>';
                                     echo '</tr>';
                                   }
                                 }
