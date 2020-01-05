@@ -2,29 +2,29 @@
     "routes": {
         "login": {
           "request": "/login",
-          "controller": "controller/Login/LoginController.php",
+          "controller": "controller/Login/LoginController",
           "controllerName": "LoginController",
           "access": "allway-accessabel"
         },
         "logout": {
           "request": "/logout",
-          "controller": "controller/Logout/LogoutController.php",
+          "controller": "controller/Logout/LogoutController",
           "controllerName": "LogoutController"
         },
         "dashboard": {
           "request": "/",
           "secondRequest": "/home",
-          "controller": "controller/Home/HomeController.php",
+          "controller": "controller/Home/HomeController",
           "controllerName": "HomeController"
         },
         "accoutlist": {
           "request": "/admin-accountlist",
-          "controller": "controller/Account/AccountList/AccountList.php",
+          "controller": "controller/Account/AccountList/AccountList",
           "controllerName": "AccountList"
         },
         "userprofile": {
           "request": "/admin-userprofile",
-          "controller": "controller/Account/UserProfile/UserProfile.php",
+          "controller": "controller/Account/UserProfile/UserProfile",
           "controllerName": "UserProfile",
           "neededParams": {
             "1": "user_id"
@@ -32,7 +32,7 @@
         },
         "clientprofile": {
           "request": "/client",
-          "controller": "controller/Client/ClientProfile/ClientProfile.php",
+          "controller": "controller/Client/ClientProfile/ClientProfile",
           "controllerName": "ClientProfile",
           "neededParams": {
             "1": "client_uid"

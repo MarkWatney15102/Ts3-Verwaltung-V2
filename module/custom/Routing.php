@@ -46,8 +46,19 @@ class Routing
 
     private function internalRouting($route)
     {
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/" . $route->controller);
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/" . $route->controller . ".php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Header/header.php");
+        try {
+          if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/" . $route->controller . "/settings.json")) {
+            $file = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/" . $route->controller . "/settings.json");
+            $json = json_decode($file);
+            foreach ($json->include as $include) {
+                require_once($_SERVER['DOCUMENT_ROOT'] . "/" . $route->controller . "/" . $include);
+            }
+          }
+        } catch (\Exception $e) {
+          throw new \Exception("File Not Found", 1);
+        }
         $controller = new $route->controllerName;
         $controller->init(new Title(), $this->config);
         $controller->createView();
