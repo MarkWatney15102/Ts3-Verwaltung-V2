@@ -16,5 +16,20 @@
         </div>
       </div>
     </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Functions</h5>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            <label for="kick_client">Kick Client</label>
+            <input type="hidden" name="clid" value="<?= $client['clid']; ?>">
+            <input type="text" class="form-control" name="kick_reason" placeholder="Kick Client with reason">
+            <input type="submit" class="btn btn-block btn-danger" name="kick_client" value="Kick Client">
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

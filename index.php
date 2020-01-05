@@ -10,7 +10,7 @@
   require_once($_SERVER["DOCUMENT_ROOT"] . "/config/config.php");
 
   $config = new Config();
-
-  $config->routing->rout($_SERVER['REQUEST_URI']);
   $loginChecker = new LoginChecker($config);
+  $config->routing->rout($_SERVER['REQUEST_URI']);
+
 ?>

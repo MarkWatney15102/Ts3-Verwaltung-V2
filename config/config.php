@@ -31,7 +31,9 @@ class Config
      */
     public $redirect;
 
-
+    /**
+    * @var TeamSpeak3
+    */
     public $ts;
 
     /**
@@ -39,11 +41,17 @@ class Config
     */
     public $user;
 
+    /**
+    * @var ActionLogger
+    */
+    public $logger;
+
     public function __construct()
     {
         $this->initRequires();
         $this->routing = new Routing($this);
         $this->redirect = new Redirect($this);
+        $this->logger = new ActionLogger($this);
 
         $this->initDatabaseConnection();
         $this->initTsQueryConnection();

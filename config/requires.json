@@ -13,7 +13,8 @@
             "message": "Messages/Message.php",
             "user": "Models/UserModel.php",
             "login": "Actions/Login/Login.php",
-            "loginChecker": "Actions/loginChecker/loginChecker.php"
+            "loginChecker": "Actions/loginChecker/loginChecker.php",
+            "actionLogger": "Actions/ActionLogger/ActionLogger.php"
         }
     }
 }
