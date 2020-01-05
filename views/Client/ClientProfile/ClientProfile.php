@@ -28,6 +28,22 @@
             <input type="text" class="form-control" name="kick_reason" placeholder="Kick Client with reason">
             <input type="submit" class="btn btn-block btn-danger" name="kick_client" value="Kick Client">
           </form>
+          <br>
+          <form method="post">
+            <label for="ban_client">Ban Client</label>
+            <input type="hidden" name="clid" value="<?= $client['clid']; ?>">
+            <input type="text" class="form-control" name="ban_reason" placeholder="Ban Client with reason">
+            <input type="number" class="form-control" name="ban_time" min="0" placeholder="Select the time">
+            <select class="form-control" name="ban_unit">
+              <option value="1">Seconds</option>
+              <option value="2">Minutes</option>
+              <option value="3">Hours</option>
+              <option value="4">Days</option>
+              <option value="5">Permanent</option>
+            </select>
+            <input type="checkbox" name="ban_sure"> <label for="ban_sure">Are you sure ?</label>
+            <input type="submit" class="btn btn-block btn-danger" name="ban_client" value="Ban Client">
+          </form>
         </div>
       </div>
     </div>
