@@ -1,12 +1,14 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-md-8 col-lg-5">
+    <div class="col-md-8 col-lg-4">
       <div class="card">
         <div class="card-header">
           <h5 class="card-title">Information</h5>
         </div>
         <div class="card-body">
           DatabaseID: <?= $client['client_database_id']; ?>
+          <br>
+          UID: <?= $this->clientUID; ?>
           <br>
           Current Username: <?= $client['client_nickname']; ?>
           <br>
@@ -16,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="card">
         <div class="card-header">
           <h5 class="card-title">Functions</h5>
@@ -44,6 +46,35 @@
             <input type="checkbox" name="ban_sure"> <label for="ban_sure">Are you sure ?</label>
             <input type="submit" class="btn btn-block btn-danger" name="ban_client" value="Ban Client">
           </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Notes</h5>
+        </div>
+        <div class="card-body">
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Short Description</th>
+                <th>Show full Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+                foreach ($notes as $note) {
+                  echo '<tr>';
+                  echo '<td>' . $note['id'] . '</td>';
+                  echo '<td>' . $note['note_desc_short'] . '</td>';
+                  echo '<td><a href="/note?note_id=' . $note['id'] . '" class="btn btn-info">Show full Note</a></td>';
+                  echo '</tr>';
+                }
+              ?>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

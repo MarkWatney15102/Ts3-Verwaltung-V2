@@ -7,16 +7,29 @@ class ClientProfile implements ControllerInterface
    */
   private $config;
 
+  /**
+  * @var ClientProfileProvider
+  */
+  private $clientProfileProvider;
+
+  /**
+  * @var string
+  */
+  private $clientUID;
+
   public function init(Title $title, Config $config)
   {
       $this->config = $config;
       $title->setTitle("Client Profile");
+
+      $this->clientUID = $_GET['client_uid'];
+      $this->ClientProfileProvider = new ClientProfileProvider($this->config, $this->clientUID);
   }
 
   public function createView()
   {
     try {
-      $client = $this->config->ts->clientGetByUid(rawurldecode($_GET['client_uid']));
+      $client = $this->config->ts->clientGetByUid(rawurldecode($this->clientUID));
     } catch (Exception $e) {
       throw new Exception("Client is offline or didnt exist", 1);
     }
@@ -28,6 +41,8 @@ class ClientProfile implements ControllerInterface
     if (isset($_POST['ban_client'])) {
       $this->banClient();
     }
+
+    $notes = $this->ClientProfileProvider->getNotes();
 
     require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Client/ClientProfile/ClientProfile.php");
   }
