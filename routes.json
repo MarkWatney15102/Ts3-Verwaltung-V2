@@ -37,6 +37,14 @@
           "neededParams": {
             "1": "client_uid"
           }
+        },
+        "notes": {
+          "request": "/note",
+          "controller": "controller/Client/Note/Note",
+          "controllerName": "Note",
+          "neededParams": {
+            "1": "note_id"
+          }
         }
     }
 }
