@@ -14,7 +14,8 @@
             "user": "Models/UserModel.php",
             "login": "Actions/Login/Login.php",
             "loginChecker": "Actions/loginChecker/loginChecker.php",
-            "actionLogger": "Actions/ActionLogger/ActionLogger.php"
+            "actionLogger": "Actions/ActionLogger/ActionLogger.php",
+            "timeParser": "Parser/TimeParser/TimeParser.php"
         }
     }
 }
