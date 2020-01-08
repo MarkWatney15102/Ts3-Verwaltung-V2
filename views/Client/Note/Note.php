@@ -30,6 +30,9 @@
                     <h5 class="card-title">Functions</h5>
                 </div>
                 <div class="card-body">
+                    <form method="post">
+                        <input type="submit" class="btn btn-block btn-danger" name="delete_note" value="Delete">
+                    </form>
                 </div>
             </div>
         </div>

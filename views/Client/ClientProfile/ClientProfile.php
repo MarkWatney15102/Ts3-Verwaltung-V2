@@ -55,6 +55,7 @@
           <h5 class="card-title">Notes</h5>
         </div>
         <div class="card-body">
+          <a href="/create-note?client_uid=<?= $this->clientUID; ?>" class="btn btn-block btn-info">Create New Note</a>
           <table class="table table-dark">
             <thead>
               <tr>

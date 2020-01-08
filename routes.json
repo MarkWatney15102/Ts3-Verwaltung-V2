@@ -2,19 +2,19 @@
     "routes": {
         "login": {
           "request": "/login",
-          "controller": "controller/Login/LoginController",
+          "controller": "controller/LoginController/LoginController",
           "controllerName": "LoginController",
           "access": "allway-accessabel"
         },
         "logout": {
           "request": "/logout",
-          "controller": "controller/Logout/LogoutController",
+          "controller": "controller/LogoutController/LogoutController",
           "controllerName": "LogoutController"
         },
         "dashboard": {
           "request": "/",
           "secondRequest": "/home",
-          "controller": "controller/Home/HomeController",
+          "controller": "controller/HomeController/HomeController",
           "controllerName": "HomeController"
         },
         "accoutlist": {
@@ -44,6 +44,14 @@
           "controllerName": "Note",
           "neededParams": {
             "1": "note_id"
+          }
+        },
+        "create-note": {
+          "request": "/create-note",
+          "controller": "controller/Client/CreateNote/CreateNote",
+          "controllerName": "CreateNote",
+          "neededParams": {
+            "1": "client_uid"
           }
         }
     }
