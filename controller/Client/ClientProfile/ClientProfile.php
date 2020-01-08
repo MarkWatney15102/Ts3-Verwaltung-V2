@@ -43,6 +43,7 @@ class ClientProfile implements ControllerInterface
     }
 
     $notes = $this->ClientProfileProvider->getNotes();
+    $serverGroups = $this->ClientProfileProvider->getServerGroups();
 
     require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Client/ClientProfile/ClientProfile.php");
   }

@@ -80,4 +80,22 @@
       </div>
     </div>
   </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Manage Server Groups</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <?php 
+                            foreach ($serverGroups as $gid => $gname) {
+                                echo '<label><input type="checkbox" name="group[]" value="' . $gid . '"> - ' . $gname . '</label><br>';
+                            }
+                        ?>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
