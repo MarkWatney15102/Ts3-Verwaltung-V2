@@ -1,6 +1,7 @@
 <?php
 
 require_once($_SERVER["DOCUMENT_ROOT"] . '/config/require.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/const.php');
 
 use Medoo\Medoo;
 
