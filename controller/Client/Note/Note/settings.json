@@ -1,0 +1,9 @@
+{
+  "settings": {
+    "author": "Eike Wientjes",
+    "controller": "Note"
+  },
+  "include": {
+    "1": "Service/NoteProvider.php"
+  }
+}

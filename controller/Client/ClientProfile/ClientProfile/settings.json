@@ -1,0 +1,9 @@
+{
+  "settings": {
+    "author": "Eike Wientjes",
+    "controller": "ClientProfile"
+  },
+  "include": {
+    "1": "Service/ClientProfileProvider.php"
+  }
+}

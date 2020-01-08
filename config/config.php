@@ -1,6 +1,7 @@
 <?php
 
 require_once($_SERVER["DOCUMENT_ROOT"] . '/config/require.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/const.php');
 
 use Medoo\Medoo;
 
@@ -31,7 +32,9 @@ class Config
      */
     public $redirect;
 
-
+    /**
+    * @var TeamSpeak3
+    */
     public $ts;
 
     /**
@@ -39,11 +42,17 @@ class Config
     */
     public $user;
 
+    /**
+    * @var ActionLogger
+    */
+    public $logger;
+
     public function __construct()
     {
         $this->initRequires();
         $this->routing = new Routing($this);
         $this->redirect = new Redirect($this);
+        $this->logger = new ActionLogger($this);
 
         $this->initDatabaseConnection();
         $this->initTsQueryConnection();
@@ -71,7 +80,7 @@ class Config
 
     private function initTsQueryConnection()
     {
-        $ts = TeamSpeak3::factory("serverquery://serveradmin:oNMyA1DC@127.0.0.1:10011/?server_port=9987");
+        $ts = TeamSpeak3::factory("serverquery://serveradmin:oNMyA1DC@127.0.0.1:10011/?server_port=9987&nickname=Ts3Control");
         $this->ts = $ts;
     }
 
