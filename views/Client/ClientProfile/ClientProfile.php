@@ -55,7 +55,7 @@
           <h5 class="card-title">Notes</h5>
         </div>
         <div class="card-body">
-          <a href="/create-note?client_uid=<?= $this->clientUID; ?>" class="btn btn-block btn-info">Create New Note</a>
+          <a href="/create-note?client_uid=<?= urlencode($this->clientUID); ?>" class="btn btn-block btn-info">Create New Note</a>
           <table class="table table-dark">
             <thead>
               <tr>
@@ -70,7 +70,7 @@
                   echo '<tr>';
                   echo '<td>' . $note['id'] . '</td>';
                   echo '<td>' . $note['note_desc_short'] . '</td>';
-                  echo '<td><a href="/note?note_id=' . $note['id'] . '" class="btn btn-info">Show full Note</a></td>';
+                  echo '<td><a href="/note?note_id=' . urlencode($note['id']) . '" class="btn btn-info">Show full Note</a></td>';
                   echo '</tr>';
                 }
               ?>

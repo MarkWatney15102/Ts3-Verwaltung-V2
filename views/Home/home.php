@@ -17,7 +17,6 @@
                         <tbody>
                             <?php
                                 foreach ($clientlist as $client) {
-                                  // var_dump($client);
                                   if($client['client_platform'] != "ServerQuery") {
                                     echo '<tr>';
                                     echo '<td>' . $client['clid'] . '</td>';

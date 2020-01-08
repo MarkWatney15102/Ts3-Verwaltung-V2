@@ -20,7 +20,8 @@ body {
 .container,
 .container-fluid,
 input,
-table {
+table,
+label {
     margin-top: 10px !important;
     color: aliceblue !important;
 }
