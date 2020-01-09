@@ -8,7 +8,7 @@ class ClientProfileProvider extends ClientProfile
     private $config;
 
     /**
-    * @var
+    * @var string
     */
     private $clientUID;
 
@@ -45,5 +45,20 @@ class ClientProfileProvider extends ClientProfile
         }
 
         return $groupsList;
+    }
+
+    public function getAllClientSetServerGroups($client): array
+    {
+        $groups = $client->memberOf();
+
+        $groupList = [];
+
+        foreach ($groups as $group) {
+            if (!empty($group['sgid'])) {
+                $groupList[$group['sgid']] = $group['name'];
+            }
+        }
+
+        return $groupList;
     }
 }
