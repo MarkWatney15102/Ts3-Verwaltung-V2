@@ -88,7 +88,7 @@
                 </div>
                 <div class="card-body">
                     <form method="post">
-                      <input type="hidden" name="client_uid" value="<?= $this->client_uid ?>">
+                      <input type="hidden" name="client_uid" value="<?= $this->clientUID; ?>">
                       <?php 
                         foreach ($serverGroups as $gid => $gname) {
                           if ($gid != DEFAULT_SERVER_GROUP) {

@@ -13,6 +13,11 @@ class ClientProfile implements ControllerInterface
   private $clientProfileProvider;
 
   /**
+   * @var ClientProfileHelper
+   */
+  private $ClientProfileHelper;
+
+  /**
   * @var string
   */
   private $clientUID;
@@ -24,6 +29,7 @@ class ClientProfile implements ControllerInterface
 
       $this->clientUID = $_GET['client_uid'];
       $this->ClientProfileProvider = new ClientProfileProvider($this->config, $this->clientUID);
+      $this->ClientProfileHelper = new ClientProfileHelper();
   }
 
   public function createView()
@@ -113,7 +119,7 @@ class ClientProfile implements ControllerInterface
   }
 
   /**
-   * @todo Remove if checkbox is uncked
+   * @todo Remove if checkbox is unchecked
    */
   private function changeClientServerGroups(): void
   {
@@ -128,20 +134,12 @@ class ClientProfile implements ControllerInterface
   
         if ($status == "checked") {
           if (!in_array($ivalue, array_keys($clientServerGroups))) {
-            // Add Client to Group
             $client->addServerGroup($ivalue, $client['client_database_id']);
           }
         }
       }
     } else {
-      // Remove all Groups
-      foreach ($serverGroups as $gid => $gname) {
-        if ($gid != DEFAULT_SERVER_GROUP) {
-          if (in_array($gid, array_keys($clientServerGroups))) {
-            $client->remServerGroup($gid);
-          }
-        }
-      }
+      $this->ClientProfileHelper->removeAllServerGroups($client, $serverGroups, $clientServerGroups);
     }
   }
 }
