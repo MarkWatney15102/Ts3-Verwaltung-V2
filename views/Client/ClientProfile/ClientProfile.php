@@ -80,4 +80,31 @@
       </div>
     </div>
   </div>
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Manage Server Groups</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                      <input type="hidden" name="client_uid" value="<?= $this->clientUID; ?>">
+                      <?php 
+                        foreach ($serverGroups as $gid => $gname) {
+                          if ($gid != DEFAULT_SERVER_GROUP) {
+                            if (in_array($gname, $clientServerGroups)) {
+                              echo '<label><input type="checkbox" name="group[]" value="' . $gid . '" checked> - ' . $gname . '</label><br>';
+                            } else {
+                              echo '<label><input type="checkbox" name="group[]" value="' . $gid . '"> - ' . $gname . '</label><br>';
+                            }
+                          }
+                        }
+                      ?>
+                      <br>
+                      <input type="submit" class="btn btn-info col-6" name="save_server_groups" value="Save Server Groups">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

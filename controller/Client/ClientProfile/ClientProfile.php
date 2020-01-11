@@ -13,6 +13,11 @@ class ClientProfile implements ControllerInterface
   private $clientProfileProvider;
 
   /**
+   * @var ClientProfileHelper
+   */
+  private $ClientProfileHelper;
+
+  /**
   * @var string
   */
   private $clientUID;
@@ -24,6 +29,7 @@ class ClientProfile implements ControllerInterface
 
       $this->clientUID = $_GET['client_uid'];
       $this->ClientProfileProvider = new ClientProfileProvider($this->config, $this->clientUID);
+      $this->ClientProfileHelper = new ClientProfileHelper();
   }
 
   public function createView()
@@ -42,12 +48,18 @@ class ClientProfile implements ControllerInterface
       $this->banClient();
     }
 
+    if (isset($_POST['save_server_groups'])) {
+      $this->changeClientServerGroups();
+    }
+
     $notes = $this->ClientProfileProvider->getNotes();
+    $serverGroups = $this->ClientProfileProvider->getServerGroups();
+    $clientServerGroups = $this->ClientProfileProvider->getAllClientSetServerGroups($client);
 
     require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Client/ClientProfile/ClientProfile.php");
   }
 
-  private function kickClient()
+  private function kickClient(): void
   {
     if (!empty($_POST['kick_reason'])) {
       $kickReason = htmlentities($_POST['kick_reason']);
@@ -68,7 +80,7 @@ class ClientProfile implements ControllerInterface
     $message->printMessage();
   }
 
-  private function banClient()
+  private function banClient(): void
   {
     if (!empty($_POST['ban_reason'])) {
       $banReason = htmlentities($_POST['ban_reason']);
@@ -103,6 +115,31 @@ class ClientProfile implements ControllerInterface
       $message->setMessageText(3);
       $message->setMessageText("You have to give a reason");
       $message->printMessage();
+    }
+  }
+
+  /**
+   * @todo Remove if checkbox is unchecked
+   */
+  private function changeClientServerGroups(): void
+  {
+    $client = $this->config->ts->clientGetByUid(rawurldecode($this->clientUID));
+    $serverGroups = $this->ClientProfileProvider->getServerGroups();
+    $clientServerGroups = $this->ClientProfileProvider->getAllClientSetServerGroups($client);
+
+    if (!empty($_POST['group'])) {
+      $groups = $_POST['group'];
+      foreach ($groups as $selectedGroup => $ivalue) {
+        $status = $ivalue ? 'checked' : '';
+  
+        if ($status == "checked") {
+          if (!in_array($ivalue, array_keys($clientServerGroups))) {
+            $client->addServerGroup($ivalue, $client['client_database_id']);
+          }
+        }
+      }
+    } else {
+      $this->ClientProfileHelper->removeAllServerGroups($client, $serverGroups, $clientServerGroups);
     }
   }
 }
