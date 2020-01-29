@@ -7,7 +7,7 @@ class LoginController implements ControllerInterface
      */
     private $config;
 
-    public function init(Title $title, Config $config)
+    public function init(Title $title, Config $config, array $params)
     {
         $this->config = $config;
         $title->setTitle("Login");

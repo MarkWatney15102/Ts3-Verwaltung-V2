@@ -47,12 +47,18 @@ class Config
     */
     public $logger;
 
+    /**
+     * @var Includer
+     */
+    public $includer;
+
     public function __construct()
     {
         $this->initRequires();
         $this->routing = new Routing($this);
         $this->redirect = new Redirect($this);
         $this->logger = new ActionLogger($this);
+        $this->includer = new Includer();
 
         $this->initDatabaseConnection();
         $this->initTsQueryConnection();

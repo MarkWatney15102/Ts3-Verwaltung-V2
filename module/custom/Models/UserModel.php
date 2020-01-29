@@ -38,6 +38,10 @@ class UserModel
             'user_id' => $this->userId
         ]);
 
+        if ($userdata == null) {
+          throw new \Exception("User didnt exist");
+        }
+
         $this->userdata = $userdata;
     }
 

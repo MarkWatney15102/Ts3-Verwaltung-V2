@@ -1,6 +1,6 @@
-<?php
+<?php 
 
-class HomeController implements ControllerInterface
+class ChannelList implements ControllerInterface
 {
     /**
      * @var Config
@@ -10,12 +10,12 @@ class HomeController implements ControllerInterface
     public function init(Title $title, Config $config, array $params)
     {
         $this->config = $config;
-        $title->setTitle("Home");
+        $title->setTitle("Channel List");
     }
 
     public function createView()
     {
-      $clientlist = $this->config->ts->clientList();
-      require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Home/home.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Channel/ChannelList/ChannelList.php");
     }
 }
+

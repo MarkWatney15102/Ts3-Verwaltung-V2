@@ -23,7 +23,7 @@
                 echo '<td>' . $account['reg_mail'] . '</td>';
                 echo '
                 <td>
-                  <a href="/admin-userprofile?user_id=' . $account['user_id'] . '"
+                  <a href="/admin/userprofile/' . $account['user_id'] . '"
                   class="btn btn-info">
                     Go to Profile
                   </a>
