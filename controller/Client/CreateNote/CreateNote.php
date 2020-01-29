@@ -7,9 +7,15 @@ class CreateNote implements ControllerInterface
      */
     private $config;
 
-    public function init(Title $title, Config $config)
+    /**
+     * @var array
+     */
+    private $params;
+
+    public function init(Title $title, Config $config, array $params)
     {
         $this->config = $config;
+        $this->params = $params;
         $title->setTitle("Create Note");
     }
 
@@ -23,7 +29,7 @@ class CreateNote implements ControllerInterface
                 "creator_id" => $_POST['creator_id']
             ]);
 
-            $this->config->redirect->redirect("/client?client_uid=" . urlencode($_GET['client_uid']));
+            $this->config->redirect->redirect("/client/ID=" . urlencode($this->params['url_param']));
         }
 
         require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Client/CreateNote/CreateNote.php");

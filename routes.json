@@ -18,44 +18,32 @@
           "controllerName": "HomeController"
         },
         "accoutlist": {
-          "request": "/admin-accountlist",
+          "request": "/admin/accountlist",
           "controller": "controller/Account/AccountList/AccountList",
           "controllerName": "AccountList"
         },
         "userprofile": {
-          "request": "/admin-userprofile",
+          "request": "/admin/userprofile",
           "controller": "controller/Account/UserProfile/UserProfile",
-          "controllerName": "UserProfile",
-          "neededParams": {
-            "1": "user_id"
-          }
+          "controllerName": "UserProfile"
         },
         "clientProfile": {
           "request": "/client",
           "controller": "controller/Client/ClientProfile/ClientProfile",
-          "controllerName": "ClientProfile",
-          "neededParams": {
-            "1": "client_uid"
-          }
+          "controllerName": "ClientProfile"
         },
         "notes": {
-          "request": "/note",
-          "controller": "controller/Client/Note/Note",
-          "controllerName": "Note",
-          "neededParams": {
-            "1": "note_id"
-          }
+          "request": "/client/note",
+          "controller": "controller/Client/client/note/client/note",
+          "controllerName": "Note"
         },
         "createNote": {
-          "request": "/create-note",
+          "request": "/client/create/note",
           "controller": "controller/Client/CreateNote/CreateNote",
-          "controllerName": "CreateNote",
-          "neededParams": {
-            "1": "client_uid"
-          }
+          "controllerName": "CreateNote"
         },
         "channel-list": {
-          "request": "/channel-list",
+          "request": "/channel/list",
           "controller": "controller/Channel/ChannelList/ChannelList",
           "controllerName": "ChannelList"
         }

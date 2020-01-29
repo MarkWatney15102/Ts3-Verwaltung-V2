@@ -22,12 +22,18 @@ class ClientProfile implements ControllerInterface
   */
   private $clientUID;
 
-  public function init(Title $title, Config $config)
+  /**
+   * @var array
+   */
+  private $params;
+
+  public function init(Title $title, Config $config, array $params)
   {
       $this->config = $config;
+      $this->params = $params;
       $title->setTitle("Client Profile");
 
-      $this->clientUID = $_GET['client_uid'];
+      $this->clientUID = $this->params['url_param'];
       $this->ClientProfileProvider = new ClientProfileProvider($this->config, $this->clientUID);
       $this->ClientProfileHelper = new ClientProfileHelper();
   }

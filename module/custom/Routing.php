@@ -12,6 +12,19 @@ class Routing
      */
     private $config;
 
+    /**
+     * @var array
+     */
+    private $params = [];
+
+    /**
+     * @var array
+     */
+    private $pattern = [
+        "/ID=.+/",
+        "/\d+/"
+    ];
+
     public function __construct(Config $config)
     {
         $this->config = $config;
@@ -20,17 +33,9 @@ class Routing
 
     public function rout($request)
     {
-        $request = explode('?', $request, 2);
-        $requestedUri = $request[0];
+        $requestedUri = $this->checkPregMatch($request);
         foreach ($this->routes->routes as $route) {
             if ($requestedUri === $route->request) {
-                if (isset($route->neededParams)) {
-                    foreach ($route->neededParams as $neededParamas) {
-                        if (!isset($_GET[$neededParamas])) {
-                            throw new Exception("Missing Paramenter", 1);
-                        }
-                    }
-                }
                 $this->internalRouting($route);
                 break;
             } else {
@@ -60,7 +65,7 @@ class Routing
             throw new \Exception("File Not Found", 1);
         }
         $controller = new $route->controllerName;
-        $controller->init(new Title(), $this->config);
+        $controller->init(new Title(), $this->config, $this->params);
         $controller->createView();
     }
 
@@ -68,5 +73,41 @@ class Routing
     {
         $jsonParser = new JsonParser($_SERVER['DOCUMENT_ROOT'] . "/routes.json");
         $this->routes = $jsonParser->getJsonArray();
+    }
+
+    private function checkPregMatch(string $rout) 
+    {
+        foreach ($this->pattern as $pattern) {
+            preg_match($pattern, $rout, $matches);
+            if (!empty($matches)) {
+                $this->params['url_param'] = str_replace('ID=', '', $matches[0]);
+                $rout = $this->removeParamFromUrl($rout);
+            }
+        }
+
+        return $rout;
+    }
+
+    private function removeParamFromUrl(string $rout) 
+    {
+        $rout = explode("/", $rout);
+        unset($rout[0]);
+        
+        $flipedRout = array_reverse($rout, false);
+        unset($flipedRout[0]);
+
+        $rout = array_reverse($flipedRout, false);
+
+        $rout = implode("/", $rout);
+
+        return "/" . $rout;
+    }
+
+    public static function getSubroutingCount()
+    {
+        $routSeperation = explode("/", $_SERVER['REQUEST_URI']);
+        unset($routSeperation[0]);
+
+        return count($routSeperation);
     }
 }

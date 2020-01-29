@@ -12,11 +12,18 @@ class Note implements ControllerInterface
      */
     private $noteProvider;
 
-    public function init(Title $title, Config $config)
+    /**
+     * @var array
+     */
+    private $params;
+
+    public function init(Title $title, Config $config, array $params)
     {
         $this->config = $config;
+        $this->params = $params;
+
         $title->setTitle("Client Profile");
-        $this->noteProvider = new NoteProvider($config, htmlentities($_GET['note_id']));
+        $this->noteProvider = new NoteProvider($config, htmlentities($this->params['url_param']));
     }
 
     public function createView()
@@ -27,12 +34,12 @@ class Note implements ControllerInterface
 
         if (isset($_POST['delete_note'])) {
             $this->config->database->delete("client_notes", [
-                "id" => htmlentities($_GET['note_id'])
+                "id" => htmlentities($this->params['url_param'])
             ]);
 
             $this->config->redirect->redirect("/home");
         }
 
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Client/Note/Note.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Client/client/note/client/note.php");
     }
 }
