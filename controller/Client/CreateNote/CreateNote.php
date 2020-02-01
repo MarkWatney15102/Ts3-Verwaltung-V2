@@ -29,7 +29,7 @@ class CreateNote implements ControllerInterface
                 "creator_id" => $_POST['creator_id']
             ]);
 
-            $this->config->redirect->redirect("/client/ID=" . urlencode($this->params['url_param']));
+            $this->config->redirect->redirect("/client/param=" . urlencode($this->params['url_param']));
         }
 
         require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Client/CreateNote/CreateNote.php");

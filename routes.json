@@ -4,48 +4,56 @@
           "request": "/login",
           "controller": "controller/LoginController/LoginController",
           "controllerName": "LoginController",
-          "access": "allway-accessabel"
+          "neededLevel": "0"
         },
         "logout": {
           "request": "/logout",
           "controller": "controller/LogoutController/LogoutController",
-          "controllerName": "LogoutController"
+          "controllerName": "LogoutController",
+          "neededLevel": "0"
         },
         "dashboard": {
           "request": "/",
           "secondRequest": "/home",
           "controller": "controller/HomeController/HomeController",
-          "controllerName": "HomeController"
+          "controllerName": "HomeController",
+          "neededLevel": "10"
         },
         "accoutlist": {
           "request": "/admin/accountlist",
           "controller": "controller/Account/AccountList/AccountList",
-          "controllerName": "AccountList"
+          "controllerName": "AccountList",
+          "neededLevel": "10"
         },
         "userprofile": {
           "request": "/admin/userprofile",
           "controller": "controller/Account/UserProfile/UserProfile",
-          "controllerName": "UserProfile"
+          "controllerName": "UserProfile",
+          "neededLevel": "10"
         },
         "clientProfile": {
           "request": "/client",
           "controller": "controller/Client/ClientProfile/ClientProfile",
-          "controllerName": "ClientProfile"
+          "controllerName": "ClientProfile",
+          "neededLevel": "10"
         },
         "notes": {
           "request": "/client/note",
           "controller": "controller/Client/client/note/client/note",
-          "controllerName": "Note"
+          "controllerName": "Note",
+          "neededLevel": "10"
         },
         "createNote": {
           "request": "/client/create/note",
           "controller": "controller/Client/CreateNote/CreateNote",
-          "controllerName": "CreateNote"
+          "controllerName": "CreateNote",
+          "neededLevel": "10"
         },
         "channel-list": {
           "request": "/channel/list",
           "controller": "controller/Channel/ChannelList/ChannelList",
-          "controllerName": "ChannelList"
+          "controllerName": "ChannelList",
+          "neededLevel": "10"
         }
     }
 }

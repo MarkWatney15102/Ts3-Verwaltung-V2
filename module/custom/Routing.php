@@ -21,7 +21,7 @@ class Routing
      * @var array
      */
     private $pattern = [
-        "/ID=.+/",
+        "/param=.+/",
         "/\d+/"
     ];
 
@@ -36,7 +36,7 @@ class Routing
         $requestedUri = $this->checkPregMatch($request);
         foreach ($this->routes->routes as $route) {
             if ($requestedUri === $route->request) {
-                $this->internalRouting($route);
+                $this->internalRouting($route);   
                 break;
             } else {
                 if(isset($route->secondRequest)) {
@@ -64,9 +64,13 @@ class Routing
         } else {
             throw new \Exception("File Not Found", 1);
         }
-        $controller = new $route->controllerName;
-        $controller->init(new Title(), $this->config, $this->params);
-        $controller->createView();
+        if ($this->config->permissions->checkRoutAccess((int)$route->neededLevel)) {
+            $controller = new $route->controllerName;
+            $controller->init(new Title(), $this->config, $this->params);
+            $controller->createView();                       
+        } else {
+            throw new \Exception("Access Denied");
+        }
     }
 
     private function getRoutesList()
@@ -80,7 +84,7 @@ class Routing
         foreach ($this->pattern as $pattern) {
             preg_match($pattern, $rout, $matches);
             if (!empty($matches)) {
-                $this->params['url_param'] = str_replace('ID=', '', $matches[0]);
+                $this->params['url_param'] = str_replace('param=', '', $matches[0]);
                 $rout = $this->removeParamFromUrl($rout);
             }
         }
