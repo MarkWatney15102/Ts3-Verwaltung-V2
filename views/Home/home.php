@@ -21,7 +21,7 @@
                                     echo '<tr>';
                                     echo '<td>' . $client['clid'] . '</td>';
                                     echo '<td>' . $client['client_nickname'] . '</td>';
-                                    echo '<td><a href="/client/ID=' . urlencode($client['client_unique_identifier']) . '" class="btn btn-block btn-info">Client Profile</a></td>';
+                                    echo '<td><a href="/client/param=' . urlencode($client['client_unique_identifier']) . '" class="btn btn-block btn-info">Client Profile</a></td>';
                                     echo '</tr>';
                                   }
                                 }

@@ -15,7 +15,7 @@
         <a class="nav-link" href="/channel/list">Channel List</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" param="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Admin Functions
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -25,6 +25,25 @@
       <li class="nav-item active">
         <a class="nav-link" href="/logout">Logout</a>
       </li>
+      <?php if ($this->config->permissions->checkElementAccess(100)) { ?>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" param="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Systemadmin
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="col-lg-12" style="text-align: center">
+              Database Name 
+              <br>
+              <?= $this->config->getDatabaseName(); ?>
+              <br>
+              <hr>
+              PHP Version
+              <br>
+              <?= $this->config->getPhpVersion(); ?>
+            </div>
+          </div>
+        </li>
+      <?php } ?>
     <?php } ?>
   </ul>
 </nav>

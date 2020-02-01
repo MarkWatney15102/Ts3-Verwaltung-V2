@@ -55,7 +55,7 @@
           <h5 class="card-title">Notes</h5>
         </div>
         <div class="card-body">
-          <a href="/client/create/note/ID=<?= urlencode($this->clientUID); ?>" class="btn btn-block btn-info">Create New Note</a>
+          <a href="/client/create/note/param=<?= urlencode($this->clientUID); ?>" class="btn btn-block btn-info">Create New Note</a>
           <table class="table table-dark">
             <thead>
               <tr>
