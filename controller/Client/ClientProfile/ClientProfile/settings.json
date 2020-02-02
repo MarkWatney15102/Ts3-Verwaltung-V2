@@ -4,6 +4,7 @@
     "controller": "ClientProfile"
   },
   "include": {
-    "1": "Service/ClientProfileProvider.php"
+    "1": "Service/ClientProfileProvider.php",
+    "2": "Service/ClientProfileHelper.php"
   }
 }

@@ -47,15 +47,30 @@ class Config
     */
     public $logger;
 
+    /**
+     * @var Includer
+     */
+    public $includer;
+
+    /**
+     * @var Permissions
+     */
+    public $permissions;
+
     public function __construct()
     {
         $this->initRequires();
         $this->routing = new Routing($this);
         $this->redirect = new Redirect($this);
         $this->logger = new ActionLogger($this);
+        $this->includer = new Includer();
 
         $this->initDatabaseConnection();
         $this->initTsQueryConnection();
+
+        if (isset($_SESSION['UID'])) {
+            $this->permissions = new Permissions($this, $_SESSION['UID']);
+        }
     }
 
     private function initRequires()
@@ -65,14 +80,16 @@ class Config
 
     private function initDatabaseConnection()
     {
+        $this->databaseConfig = [
+            'database_type' => 'mysql',
+            'database_name' => 'ts3',
+            'server' => '127.0.0.1',
+            'username' => 'root',
+            'password' => ''
+        ];
+
         $database = new Medoo(
-            [
-                'database_type' => 'mysql',
-                'database_name' => 'ts3',
-                'server' => '127.0.0.1',
-                'username' => 'root',
-                'password' => ''
-            ]
+            $this->databaseConfig
         );
 
         $this->database = $database;
@@ -87,5 +104,15 @@ class Config
     public function setUser(UserModel $user)
     {
         $this->user = $user;
+    }
+
+    public function getDatabaseName(): string
+    {
+        return $this->databaseConfig['database_name'];
+    }
+
+    public function getPhpVersion()
+    {
+        return phpversion();
     }
 }

@@ -7,7 +7,7 @@
                 </div>
                 <div class="card-body">
                     <form method="post">
-                        <input type="hidden" name="client_uid" value="<?= htmlentities($_GET['client_uid']); ?>">
+                        <input type="hidden" name="client_uid" value="<?= htmlentities($this->params['url_param']); ?>">
                         <input type="hidden" name="creator_id" value="<?= $this->config->user->getUserID(); ?>">
                         <label for="note_desc_short">Short Description</label>
                         <input type="text" class="form-control" name="note_desc_short" placeholder="Short Description">

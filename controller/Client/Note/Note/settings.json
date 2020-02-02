@@ -4,6 +4,6 @@
     "controller": "Note"
   },
   "include": {
-    "1": "Service/NoteProvider.php"
+    "1": "Service/client/noteProvider.php"
   }
 }

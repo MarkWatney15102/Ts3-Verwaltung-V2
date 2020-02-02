@@ -1,3 +1,4 @@
 <?php 
-defined ('VERSION') or define('VERSION', 'Alpha 0.0.1');
+defined ('VERSION') or define('VERSION', '0.0.1 DEV');
+defined ('DEFAULT_SERVER_GROUP') or define('DEFAULT_SERVER_GROUP', '8');
 ?>

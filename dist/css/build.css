@@ -7,6 +7,7 @@
 
 body {
     background-color: #2f3347 !important;
+    min-height: 105%;
 }
 
 .nav-bar {
@@ -20,8 +21,7 @@ body {
 .container,
 .container-fluid,
 input,
-table,
-label {
+table {
     margin-top: 10px !important;
     color: aliceblue !important;
 }
@@ -42,4 +42,19 @@ label {
 
 .dropdown-menu a {
   color: black !important;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #272740;
+    
+}
+::-webkit-scrollbar-thumb {
+    background: #272740;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #242457;
+    border-radius: 5px !important;
 }

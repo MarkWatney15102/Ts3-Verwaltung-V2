@@ -16,4 +16,9 @@ class Redirect
     {
         header("Location: " . $uri);
     }
+
+    public static function to(string $request)
+    {
+        header("Location: " . $request);
+    }
 }

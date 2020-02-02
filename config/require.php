@@ -24,6 +24,14 @@ class RequireContainer
         }
 
         foreach ($json['requires']['custom'] as $key => $value) {
+            if (file_exists($_SERVER["DOCUMENT_ROOT"] . "/module/custom/" . $key ."/include.json")) {
+                $subInclude = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/module/custom/" . $key ."/include.json");
+                $subIncludeJson = json_decode($subInclude);
+
+                foreach ($subIncludeJson->include as $include) {
+                    require_once($_SERVER["DOCUMENT_ROOT"] . "/module/custom/" . $key . "/" . $include);
+                }
+            }
             $this->requires['custom'][$key] = $value;
             require_once($_SERVER["DOCUMENT_ROOT"] . "/module/custom/" . $value);
         }

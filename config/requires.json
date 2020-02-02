@@ -5,6 +5,8 @@
             "teamSpeak": "TeamSpeak3/TeamSpeak3.php"
         },
         "custom": {
+            "includer": "Includer/Includer.php",
+            "permissions": "Permissions/Permissions.php",
             "jsonParser": "Parser/JsonParser/JsonParser.php",
             "title": "Title.php",
             "controllerInterface": "Interface/Controller/ControllerInterface.php",

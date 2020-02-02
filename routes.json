@@ -4,55 +4,62 @@
           "request": "/login",
           "controller": "controller/LoginController/LoginController",
           "controllerName": "LoginController",
-          "access": "allway-accessabel"
+          "neededLevel": "0"
         },
         "logout": {
           "request": "/logout",
           "controller": "controller/LogoutController/LogoutController",
-          "controllerName": "LogoutController"
+          "controllerName": "LogoutController",
+          "neededLevel": "0"
         },
         "dashboard": {
           "request": "/",
           "secondRequest": "/home",
           "controller": "controller/HomeController/HomeController",
-          "controllerName": "HomeController"
+          "controllerName": "HomeController",
+          "neededLevel": "10"
         },
         "accoutlist": {
-          "request": "/admin-accountlist",
+          "request": "/admin/accountlist",
           "controller": "controller/Account/AccountList/AccountList",
-          "controllerName": "AccountList"
+          "controllerName": "AccountList",
+          "neededLevel": "10"
         },
         "userprofile": {
-          "request": "/admin-userprofile",
+          "request": "/admin/userprofile",
           "controller": "controller/Account/UserProfile/UserProfile",
           "controllerName": "UserProfile",
-          "neededParams": {
-            "1": "user_id"
-          }
+          "neededLevel": "10"
         },
-        "clientprofile": {
+        "clientProfile": {
           "request": "/client",
           "controller": "controller/Client/ClientProfile/ClientProfile",
           "controllerName": "ClientProfile",
-          "neededParams": {
-            "1": "client_uid"
-          }
+          "neededLevel": "10"
         },
         "notes": {
-          "request": "/note",
-          "controller": "controller/Client/Note/Note",
+          "request": "/client/note",
+          "controller": "controller/Client/client/note/client/note",
           "controllerName": "Note",
-          "neededParams": {
-            "1": "note_id"
-          }
+          "neededLevel": "10"
         },
-        "create-note": {
-          "request": "/create-note",
+        "createNote": {
+          "request": "/client/create/note",
           "controller": "controller/Client/CreateNote/CreateNote",
           "controllerName": "CreateNote",
-          "neededParams": {
-            "1": "client_uid"
-          }
+          "neededLevel": "10"
+        },
+        "channel-list": {
+          "request": "/channel/list",
+          "controller": "controller/Channel/ChannelList/ChannelList",
+          "controllerName": "ChannelList",
+          "neededLevel": "10"
+        },
+        "server": {
+          "request": "/server",
+          "controller": "controller/Server/ServerFunctions/ServerFunctions",
+          "controllerName": "ServerFunctions",
+          "neededLevel": "10"
         }
     }
 }
