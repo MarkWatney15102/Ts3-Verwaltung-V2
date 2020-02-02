@@ -68,7 +68,9 @@ class Config
         $this->initDatabaseConnection();
         $this->initTsQueryConnection();
 
-        $this->permissions = new Permissions($this, $_SESSION['UID']);
+        if (isset($_SESSION['UID'])) {
+            $this->permissions = new Permissions($this, $_SESSION['UID']);
+        }
     }
 
     private function initRequires()
