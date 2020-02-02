@@ -54,6 +54,12 @@
           "controller": "controller/Channel/ChannelList/ChannelList",
           "controllerName": "ChannelList",
           "neededLevel": "10"
+        },
+        "server": {
+          "request": "/server",
+          "controller": "controller/Server/ServerFunctions/ServerFunctions",
+          "controllerName": "ServerFunctions",
+          "neededLevel": "10"
         }
     }
 }

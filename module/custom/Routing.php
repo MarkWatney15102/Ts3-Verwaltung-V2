@@ -64,12 +64,18 @@ class Routing
         } else {
             throw new \Exception("File Not Found", 1);
         }
-        if ($this->config->permissions->checkRoutAccess((int)$route->neededLevel)) {
+        if (isset($_SESSION['UID'])) {
+            if ($this->config->permissions->checkRoutAccess((int)$route->neededLevel)) {
+                $controller = new $route->controllerName;
+                $controller->init(new Title(), $this->config, $this->params);
+                $controller->createView();                       
+            } else {
+                throw new \Exception("Access Denied");
+            }
+        } else {
             $controller = new $route->controllerName;
             $controller->init(new Title(), $this->config, $this->params);
-            $controller->createView();                       
-        } else {
-            throw new \Exception("Access Denied");
+            $controller->createView();  
         }
     }
 
