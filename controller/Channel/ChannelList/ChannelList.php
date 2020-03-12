@@ -15,6 +15,7 @@ class ChannelList implements ControllerInterface
 
     public function createView()
     {
+        $channelList = $this->config->ts->channelList();
         require_once($_SERVER['DOCUMENT_ROOT'] . "/views/Channel/ChannelList/ChannelList.php");
     }
 }

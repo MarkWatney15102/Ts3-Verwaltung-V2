@@ -74,7 +74,7 @@ class ClientProfile implements ControllerInterface
     }
 
     $this->config->ts->clientKick($_POST['clid'], TeamSpeak3::KICK_SERVER, $kickReason);
-    $this->config->logger->logAction(
+    ActionLogger::logAction(
       $this->config->user->getUserID(),
       'Client Kick',
       htmlentities($_POST['clid'])
@@ -110,7 +110,7 @@ class ClientProfile implements ControllerInterface
         }
 
         $this->config->ts->clientBan($_POST['clid'], $banTime, $banReason);
-        $this->config->logger->logAction(
+        ActionLogger::logAction(
           $this->config->user->getUserID(),
           'Client Ban | Time: ' . $banTime . " | Reason: " . $banReason,
           htmlentities($_POST['clid'])

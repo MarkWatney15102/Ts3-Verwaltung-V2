@@ -12,7 +12,7 @@ class ActionLogger
     $this->config = $config;
   }
 
-  public function logAction(int $userId, String $desc, int $referenzId = 0)
+  public static function logAction(int $userId, String $desc, int $referenzId = 0)
   {
     $this->config->database->insert('user_actions', [
       'user_id' => $userId,

@@ -17,23 +17,25 @@ class IncluderProvider
      */
     private $pathToFilePartOne;
 
-    public function loadDependencies()
+    public static function loadDependencies()
     {
-        $this->loadCSSFiles();
-        $this->loadJSFiles();
-    }
+        $subroutingcount = Routing::getSubroutingCount();
 
-    private function loadJSFiles() 
-    {
-        echo '<script src="' . $this->pathToFilePartOne . 'dist/js/jquery.min.js"></script>';
-        echo '<script src="' . $this->pathToFilePartOne . 'dist/js/bootstrap.min.js"></script>';
-    }
+        $pathToFilePartOne = '';
 
-    private function loadCSSFiles()
-    {
-        echo '<link rel="stylesheet" href="' . $this->pathToFilePartOne . 'dist/css/build.css">';
-        echo '<link rel="stylesheet" href="' . $this->pathToFilePartOne . 'dist/css/bootstrap.min.css">';
-        echo '<link rel="stylesheet" href="' . $this->pathToFilePartOne . 'dist/css/message-boxes.css">';
+        for ($i = 0; $i < $subroutingcount; $i++) {
+            $pathToFilePartOne .= "../";
+        }
+
+        $pathToFilePartOne;
+
+        echo '<script src="' . $pathToFilePartOne . 'dist/js/jquery.min.js"></script>';
+        echo '<script src="' . $pathToFilePartOne . 'dist/js/bootstrap.min.js"></script>';
+        echo '<script src="' . $pathToFilePartOne . 'dist/js/fontawesome.min.js"></script>';
+
+        echo '<link rel="stylesheet" href="' . $pathToFilePartOne . 'dist/css/build.css">';
+        echo '<link rel="stylesheet" href="' . $pathToFilePartOne . 'dist/css/bootstrap.min.css">';
+        echo '<link rel="stylesheet" href="' . $pathToFilePartOne . 'dist/css/message-boxes.css">';
     }
 
     public function setPathToFilePartOne()

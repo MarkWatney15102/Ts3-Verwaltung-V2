@@ -6,6 +6,7 @@
         },
         "custom": {
             "includer": "Includer/Includer.php",
+            "singleton": "Other/Singleton/Singleton.php",
             "permissions": "Permissions/Permissions.php",
             "jsonParser": "Parser/JsonParser/JsonParser.php",
             "title": "Title.php",
@@ -17,7 +18,8 @@
             "login": "Actions/Login/Login.php",
             "loginChecker": "Actions/loginChecker/loginChecker.php",
             "actionLogger": "Actions/ActionLogger/ActionLogger.php",
-            "timeParser": "Parser/TimeParser/TimeParser.php"
+            "timeParser": "Parser/TimeParser/TimeParser.php",
+            "requestCleaner": "Other/RequestCleaner/RequestCleaner.php"
         }
     }
 }

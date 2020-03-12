@@ -16,7 +16,7 @@ class Message
      */
     private $messageText;
 
-    public function setMessageType(int $messageType)
+    public function setMessageType(int $messageType = 0)
     {
         switch ($messageType) {
             case 1:

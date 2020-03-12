@@ -1,0 +1,22 @@
+{
+    "table": {
+        "name": "user_login"
+    },
+    "mapping": {
+        "user_id": {
+            "mapTo": "userId"
+        },
+        "username": {
+            "mapTo": "name"
+        },
+        "reg_mail": {
+            "mapTo": "regMail"
+        },
+        "level": {
+            "mapTo": "level"
+        },
+        "create_time": {
+            "mapTo": "createTime"
+        }
+    }
+}

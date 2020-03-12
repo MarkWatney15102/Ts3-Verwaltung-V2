@@ -10,7 +10,7 @@ class Title
     public function setTitle(string $title) 
     {
         $this->pageTitle = $title;
-        echo '<title>' . $this->pageTitle . '</title>';
+        echo '<title>' . TITLE . " - " . $this->pageTitle . '</title>';
     }
 
     public function getTitle()

@@ -29,8 +29,8 @@ class Login extends Config
 
     public function __construct(string $username, string $password, Config $config)
     {
-        $this->username = $username;
-        $this->password = $password;
+        $this->username = RequestCleaner::cleanTextInput($username);
+        $this->password = RequestCleaner::cleanTextInput($password);
         $this->config = $config;
     }
 
@@ -47,7 +47,7 @@ class Login extends Config
         } else {
             if (password_verify($this->password, $this->userdata[0]['password'])) {
                 $this->auth = true;
-                $_SESSION['UID'] = $this->userdata[0]['user_id'];
+                $this->setUidSession($this->userdata[0]['user_id']);
                 $message->setMessageType(1);
                 $message->setMessageText("Login was Successfull");
             } else {
@@ -58,6 +58,16 @@ class Login extends Config
         }
 
         $message->printMessage();
+    }
+
+    public function isAuth()
+    {
+        return $this->auth;
+    }
+
+    private function setUidSession($userId) 
+    {
+        $_SESSION['UID'] = $userId;
     }
 
     private function getUserdataByUsername()
@@ -73,10 +83,5 @@ class Login extends Config
                 'username' => $this->username
             ]
         );
-    }
-
-    public function isAuth()
-    {
-        return $this->auth;
     }
 }

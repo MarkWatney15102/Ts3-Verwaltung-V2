@@ -43,11 +43,6 @@ class Config
     public $user;
 
     /**
-    * @var ActionLogger
-    */
-    public $logger;
-
-    /**
      * @var Includer
      */
     public $includer;
@@ -62,7 +57,6 @@ class Config
         $this->initRequires();
         $this->routing = new Routing($this);
         $this->redirect = new Redirect($this);
-        $this->logger = new ActionLogger($this);
         $this->includer = new Includer();
 
         $this->initDatabaseConnection();

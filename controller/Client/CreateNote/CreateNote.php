@@ -24,8 +24,8 @@ class CreateNote implements ControllerInterface
         if (isset($_POST['create_note'])) {
             $this->config->database->insert("client_notes", [
                 "user_uid" => $_POST['client_uid'],
-                "note_desc_short" => htmlentities($_POST['note_desc_short']),
-                "note_desc" => htmlentities($_POST['note_desc']),
+                "note_desc_short" => RequestCleaner::cleanTextInput($_POST['note_desc_short']),
+                "note_desc" => RequestCleaner::cleanTextInput($_POST['note_desc']),
                 "creator_id" => $_POST['creator_id']
             ]);
 
